@@ -1,6 +1,5 @@
 ﻿using Firebase.Auth.Repository;
 using System;
-using System.Threading.Tasks;
 
 namespace Firebase.Auth
 {
@@ -16,7 +15,7 @@ namespace Firebase.Auth
         /// Creates a new instance of <see cref="UserManager"/> with custom repository.
         /// </summary>
         /// <param name="fileSystem"> Proxy to the filesystem operations. </param>
-        public UserManager(IUserRepository fileSystem) 
+        public UserManager(IUserRepository fileSystem)
         {
             this.fs = fileSystem;
         }
@@ -58,7 +57,7 @@ namespace Firebase.Auth
 
         public void DeleteExistingUser(string uid)
         {
-            if (cache?.info.Uid != uid)
+            if (cache?.info?.Uid != uid)
             {
                 // deleting a user which is not an active user
                 return;

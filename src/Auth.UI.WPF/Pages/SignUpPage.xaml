@@ -90,18 +90,16 @@
             HorizontalAlignment="Right"
             Orientation="Horizontal">
 
-            <Button
-                Click="CancelClick"
-                Content="{Binding FuiCancel, Source={x:Static res:AppResources.Instance}}"
-                TabIndex="3"
-                />
+            <Button Click="CancelClick"
+                    Content="{Binding FuiCancel, Source={x:Static res:AppResources.Instance}}"
+                    TabIndex="3"
+                    Style="{StaticResource Button}" />
 
-            <Button
-                Click="SignUpClick"
-                Margin="12 0 0 0"
-                Content="{Binding FuiButtonTextSave, Source={x:Static res:AppResources.Instance}}"
-                TabIndex="2"
-                />
+            <Button Click="SignUpClick"
+                    Margin="12 0 0 0"
+                    Content="{Binding FuiButtonTextSave, Source={x:Static res:AppResources.Instance}}"
+                    TabIndex="2"
+                    Style="{StaticResource Button}" />
         </StackPanel>
 
         <local:LinksFooter />

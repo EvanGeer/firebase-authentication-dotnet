@@ -1,6 +1,7 @@
 ﻿using Firebase.Auth.UI.Converters;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace Firebase.Auth.UI
 {
@@ -10,7 +11,7 @@ namespace Firebase.Auth.UI
         {
             var tcs = new TaskCompletionSource<string>();
 
-            Application.Current.Dispatcher.Invoke(() =>
+            Dispatcher.CurrentDispatcher.Invoke(() =>
             {
                 var window = new WebAuthenticationBrokerWindow();
                 window.WebView.NavigationCompleted += (s, e) =>

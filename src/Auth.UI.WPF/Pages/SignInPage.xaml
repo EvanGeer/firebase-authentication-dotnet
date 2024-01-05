@@ -73,21 +73,19 @@
                     <Run Text="{Binding FuiTroubleSigningIn, Mode=OneWay, Source={x:Static res:AppResources.Instance}}" />
                 </Hyperlink>
             </TextBlock>
-            
-            <Button
-                Grid.Column="1"
-                Click="CancelClick"
-                Content="{Binding FuiCancel, Source={x:Static res:AppResources.Instance}}"
-                TabIndex="2"
-                />
 
-            <Button
-                Grid.Column="2"
-                Click="SignInClick"
-                Margin="12 0 0 0"
-                Content="{Binding FuiSignInDefault, Source={x:Static res:AppResources.Instance}}"
-                TabIndex="1"
-                />
+            <Button Grid.Column="1"
+                    Click="CancelClick"
+                    Content="{Binding FuiCancel, Source={x:Static res:AppResources.Instance}}"
+                    TabIndex="2"
+                    Style="{StaticResource Button}" />
+
+            <Button Grid.Column="2"
+                    Click="SignInClick"
+                    Margin="12 0 0 0"
+                    Content="{Binding FuiSignInDefault, Source={x:Static res:AppResources.Instance}}"
+                    TabIndex="1"
+                    Style="{StaticResource Button}" />
         </Grid>
 
         <local:LinksFooter />

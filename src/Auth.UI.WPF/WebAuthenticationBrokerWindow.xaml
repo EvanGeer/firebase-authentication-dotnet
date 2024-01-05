@@ -14,6 +14,13 @@
         Height="650" 
         Width="600">
     <Grid>
-        <web:WebView2 x:Name="WebView" />
+        <web:WebView2 x:Name="WebView">
+            <!--Creation Properties need to be to a folder where read/write is not restricted
+            see >> https://www.reddit.com/r/csharp/comments/qyhph3/wpf_apllication_with_webview2_not_working_in/
+            Never thought I would have to find answers in Reddit... ~\_@_@_/~ -->
+            <web:WebView2.CreationProperties>
+                <web:CoreWebView2CreationProperties UserDataFolder="C:\ProgramData\IinBIM\WebView2Cache" />
+            </web:WebView2.CreationProperties>
+        </web:WebView2>
     </Grid>
 </Window>

@@ -54,19 +54,19 @@
             Margin="0 12 0 0"
             HorizontalAlignment="Right"
             Orientation="Horizontal">
-            
-            <Button
-                Click="CancelClick"
-                Content="{Binding FuiCancel, Source={x:Static res:AppResources.Instance}}"
-                TabIndex="2"
-                />
-            
-            <Button
-                Click="SignInClick"
-                Margin="12 0 0 0"
-                Content="{Binding FuiSignInDefault, Source={x:Static res:AppResources.Instance}}"
-                TabIndex="1"
-                />
+
+            <Button Click="CancelClick"
+                    Content="{Binding FuiCancel, Source={x:Static res:AppResources.Instance}}"
+                    TabIndex="2"
+                    Style="{StaticResource Button}" />
+
+
+
+            <Button Click="SignInClick"
+                    Margin="12 0 0 0"
+                    Content="{Binding FuiSignInDefault, Source={x:Static res:AppResources.Instance}}"
+                    TabIndex="1"
+                    Style="{StaticResource Button}" />
         </StackPanel>
 
         <local:LinksFooter />
