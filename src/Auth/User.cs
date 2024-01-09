@@ -80,6 +80,37 @@ namespace Firebase.Auth
         }
 
         /// <summary>
+        /// Get fresh firebase id token.
+        /// </summary>
+        /// <param name="forceRefresh"> Specifies whether the token should be refreshed even if it's not expired. </param>
+        public string GetIdToken(bool forceRefresh = false)
+        {
+            if (forceRefresh || this.Credential.IsExpired())
+            {
+                var task = Task.Run(async () => await
+                    this.token.ExecuteAsync(new RefreshTokenRequest
+                    {
+                        GrantType = TokenGrantType,
+                        RefreshToken = this.Credential.RefreshToken
+                    }));
+
+                var refresh = task.Result;
+
+                this.Credential = new FirebaseCredential
+                {
+                    ExpiresIn = refresh.ExpiresIn,
+                    IdToken = refresh.IdToken,
+                    ProviderType = this.Credential.ProviderType,
+                    RefreshToken = refresh.RefreshToken
+                };
+
+                this.config.UserManager.UpdateExistingUser(this);
+            }
+
+            return this.Credential.IdToken;
+        }
+
+        /// <summary>
         /// Delete user's account.
         /// </summary>
         public async Task DeleteAsync()
